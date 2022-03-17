@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
 import '../models/app_color.dart' as color;
+import '../models/training_data.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({Key? key}) : super(key: key);
-
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+
+  // List info = [];
+  /*
+    _initData() {
+      DefaultAssetBundle.of(context).loadString('json/info.json').then((value){
+        info = json.decode(value);
+      });
+    }
+  @override
+  void initState() {
+    super.initState();
+    _initData();
+  }
+   */
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +55,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 )),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 7),
             Container(
               height: 200,
               width: MediaQuery.of(context).size.width,
@@ -95,11 +109,162 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                 ),
                               ],
                             ),
-                            child: Icon(Icons.play_circle_fill, color: Colors.white, size: 60,)),
+                            child: Icon(Icons.play_circle_fill, color: Colors.white, size: 60,),
+                        ),
                       ],
                     ),
                   ],
                 ),
+              ),
+            ),
+            SizedBox(height: 5),
+            Container(
+              height: 180,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 120,
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(top: 30),
+                    decoration: BoxDecoration(
+                      //color: Colors.red,
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'images/card1.png',
+                        ),
+                        fit: BoxFit.fill,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 40,
+                        offset: Offset(8,10),
+                        color: color.AppColor.gradientSecond.withOpacity(0.3),
+                        ),
+                        BoxShadow(
+                          blurRadius: 10,
+                          offset: Offset(-1,-5),
+                          color: color.AppColor.gradientSecond.withOpacity(0.3),
+                        ),
+                      ]
+                    ),
+                  ),
+                  Container(
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(right: 200, bottom: 30),
+                    decoration: BoxDecoration(
+                      color: Colors.red.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'images/running.jpg',
+                          ),
+                          fit: BoxFit.fill,
+                        ),
+                    ),
+                  ),
+                  Container(
+                    width: double.maxFinite,
+                    height: 100,
+                    margin: EdgeInsets.only(left: 150, top: 50),
+                    child: Column(
+                      children: [
+                        Text(
+                          'You are doing amazing',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 10,),
+                        RichText(
+                          text: TextSpan(
+                            text: 'Keep it up\n',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black87,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'Stick to your plan',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                            ]
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Text(
+                  'Area of Exercises',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.italic,
+                      color: color.AppColor.homePageTitle,
+                  ),
+                ),
+              ],
+            ),
+            Expanded(
+              child: ListView.builder(
+                //itemCount: info.length,
+                itemCount: 4,
+                  itemBuilder: (ctx, index) => Row(
+                    children: [
+                      Container(
+                        height: 170,
+                        width: 170,
+                        padding: EdgeInsets.only(bottom: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              //info[index]['img']
+                              'images/ex1.jpg',
+                            ),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 3,
+                              offset: Offset(5,5),
+                              color: color.AppColor.gradientSecond.withOpacity(0.1),
+                            ),
+                            BoxShadow(
+                              blurRadius: 3,
+                              offset: Offset(-5,-5),
+                              color: color.AppColor.gradientSecond.withOpacity(0.1),
+                            ),
+                          ]
+                        ),
+                        child: Center(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Text(
+                              // info[index]['text']
+                              'Glues',
+                              style: TextStyle(
+                                  fontSize: 20, color:
+                              color.AppColor.homePageDetail
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
               ),
             ),
           ],

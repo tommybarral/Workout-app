@@ -5,20 +5,26 @@ class TrainingInfo {
     Training(
         title: 'Squat and Walk',
         time: '45 seconds',
-        thumbnail: 'embed/squat1.png',
+        thumbnail: 'images/ex1.jpg',
         videoUrl: 'videoUrl',
     ),
     Training(
         title: 'Plie squat and Heel raises',
         time: '55 seconds',
-        thumbnail: 'embed/squat2.png',
+        thumbnail: 'images/ex2.jpg',
         videoUrl: 'videoUrl',
     ),
     Training(
         title: 'Squat kickback',
         time: '60 seconds',
-        thumbnail: 'embed/squat3.png',
+        thumbnail: 'images/ex3.jpg',
         videoUrl: 'videoUrl',
+    ),
+    Training(
+      title: 'Squat kickback',
+      time: '60 seconds',
+      thumbnail: 'images/ex4.jpg',
+      videoUrl: 'videoUrl',
     ),
   ];
 
