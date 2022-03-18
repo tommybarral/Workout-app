@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:workout_app/screens/training_details_screen.dart';
+import '../screens/training_details_screen.dart';
 import '../models/app_color.dart' as color;
 import '../models/training_data.dart';
 
@@ -11,8 +11,9 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
 
-  // List info = [];
   /*
+  List info = [];
+
     _initData() {
       DefaultAssetBundle.of(context).loadString('json/info.json').then((value){
         info = json.decode(value);
@@ -37,7 +38,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Training', style: TextStyle(fontSize: 30, color: color.AppColor.homePageTitle, fontWeight: FontWeight.w700),),
-                //Expanded(child: Container()),
+                //Expanded(child: Container()), OR Spacer()
                 Spacer(),
                 IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios, size: 20, color: color.AppColor.homePageIcons,),),
                 IconButton(onPressed: () {}, icon: Icon(Icons.calendar_today_outlined, size: 20, color: color.AppColor.homePageIcons,),),
@@ -49,7 +50,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 Text('Your program', style: TextStyle(fontSize: 20, color: color.AppColor.homePageSubtitle, fontWeight: FontWeight.w700),),
                 Spacer(),
                 TextButton(onPressed: () {
-                  //Navigator.of(context).pushNamed(TrainingDetailsScreen.routeName);
+                  Navigator.of(context).pushNamed(TrainingDetailsScreen.routeName);
                 }, child: Row(
                   children: [
                     Text('Details', style: TextStyle(fontSize: 20, color: color.AppColor.homePageDetail, fontWeight: FontWeight.w700),),
@@ -159,7 +160,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.only(right: 200, bottom: 30),
                     decoration: BoxDecoration(
-                      color: Colors.red.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                           image: AssetImage(
