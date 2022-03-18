@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:workout_app/screens/home_page_screen.dart';
+//import 'package:workout_app/screens/training_details_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([
@@ -19,6 +20,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePageScreen(),
+      routes: {
+        HomePageScreen.routeName: (context) => HomePageScreen(),
+        //TrainingDetailsScreen.routeName: (context) => TrainingDetailsScreen(),
+      },
     );
   }
 }

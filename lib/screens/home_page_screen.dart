@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+//import 'package:workout_app/screens/training_details_screen.dart';
 import '../models/app_color.dart' as color;
 import '../models/training_data.dart';
 
 class HomePageScreen extends StatefulWidget {
+  static const routeName = '/home-page';
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
 }
@@ -28,7 +30,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
     return Scaffold(
       backgroundColor: color.AppColor.homePageBackground,
       body: Container(
-        padding: EdgeInsets.only(top: 70, left: 30, right: 30),
+        padding: EdgeInsets.only(top: 60, left: 30, right: 30),
         child: Column(
           children: [
             Row(
@@ -46,7 +48,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
               children: [
                 Text('Your program', style: TextStyle(fontSize: 20, color: color.AppColor.homePageSubtitle, fontWeight: FontWeight.w700),),
                 Spacer(),
-                TextButton(onPressed: () {}, child: Row(
+                TextButton(onPressed: () {
+                  //Navigator.of(context).pushNamed(TrainingDetailsScreen.routeName);
+                }, child: Row(
                   children: [
                     Text('Details', style: TextStyle(fontSize: 20, color: color.AppColor.homePageDetail, fontWeight: FontWeight.w700),),
                     SizedBox(width: 5),
@@ -218,53 +222,106 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ],
             ),
             Expanded(
-              child: ListView.builder(
-                //itemCount: info.length,
-                itemCount: 4,
-                  itemBuilder: (ctx, index) => Row(
-                    children: [
-                      Container(
-                        height: 170,
-                        width: 170,
-                        padding: EdgeInsets.only(bottom: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              //info[index]['img']
-                              'images/ex1.jpg',
-                            ),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 3,
-                              offset: Offset(5,5),
-                              color: color.AppColor.gradientSecond.withOpacity(0.1),
-                            ),
-                            BoxShadow(
-                              blurRadius: 3,
-                              offset: Offset(-5,-5),
-                              color: color.AppColor.gradientSecond.withOpacity(0.1),
-                            ),
-                          ]
-                        ),
-                        child: Center(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              // info[index]['text']
-                              'Glues',
-                              style: TextStyle(
-                                  fontSize: 20, color:
-                              color.AppColor.homePageDetail
+              child: OverflowBox(
+                maxWidth: MediaQuery.of(context).size.width,
+                child: MediaQuery.removePadding(
+                  removeTop: true,
+                  context: context,
+                  child: ListView.builder(
+                    //itemCount: (info.length.toDouble()/2).toInt(),
+                    itemCount: 4,
+                      itemBuilder: (ctx, index) {
+                      int a = 2*index;
+                      int b = 2*index + 1;
+                      return Row(
+                          children: [
+                            Container(
+                              height: 170,
+                              width: (MediaQuery.of(context).size.width - 90) / 2,
+                              margin: EdgeInsets.only(left: 30, bottom: 15, top: 15),
+                              padding: EdgeInsets.only(bottom: 5),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      //info[a]['img']
+                                      'images/ex1.jpg',
+                                    ),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      offset: Offset(5,5),
+                                      color: color.AppColor.gradientSecond.withOpacity(0.1),
+                                    ),
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      offset: Offset(-5,-5),
+                                      color: color.AppColor.gradientSecond.withOpacity(0.1),
+                                    ),
+                                  ]
+                              ),
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    // info[a]['text']
+                                    'Glues',
+                                    style: TextStyle(
+                                        fontSize: 20, color:
+                                    color.AppColor.homePageDetail
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      ),
-                    ],
+                            Container(
+                              height: 170,
+                              width: (MediaQuery.of(context).size.width - 90) / 2,
+                              margin: EdgeInsets.only(left: 30, bottom: 15, top: 15),
+                              padding: EdgeInsets.only(bottom: 5),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      //info[b]['img']
+                                      'images/ex1.jpg',
+                                    ),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      offset: Offset(5,5),
+                                      color: color.AppColor.gradientSecond.withOpacity(0.1),
+                                    ),
+                                    BoxShadow(
+                                      blurRadius: 3,
+                                      offset: Offset(-5,-5),
+                                      color: color.AppColor.gradientSecond.withOpacity(0.1),
+                                    ),
+                                  ]
+                              ),
+                              child: Center(
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    // info[b]['text']
+                                    'Glues',
+                                    style: TextStyle(
+                                        fontSize: 20, color:
+                                    color.AppColor.homePageDetail
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      }
                   ),
+                ),
               ),
             ),
           ],
